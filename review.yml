@@ -1,0 +1,87 @@
+aid: servus-credit-union
+name: Servus Credit Union
+review:
+  question: Does Servus Credit Union expose a public first-party developer API or downloadable specifications?
+  answer: false
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Servus Credit Union publishes no public first-party developer API and runs
+    no developer portal. Probing developer.servus.ca and api.servus.ca returned
+    no DNS resolution (curl exit / HTTP 000), and https://www.servus.ca/developer
+    returns HTTP 404. The public site (https://www.servus.ca/, HTTP 200) documents
+    retail/business banking, mortgages, investments, and online/mobile banking,
+    but no API reference, OpenAPI/Swagger download, sandbox, or OAuth developer
+    onboarding is present anywhere.
+
+    As Alberta's largest credit union and — after the 2023 connectFirst merger —
+    Canada's largest by assets, Servus is a provincially regulated, member-owned
+    cooperative (Schedule-equivalent provincial credit union, not a Schedule I/II
+    bank). Its open-finance access is aggregator-only: third-party financial-data
+    aggregators Finicity (Mastercard Open Banking) and Plaid provide
+    consumer-permissioned account, balance, transaction, and identity/income
+    verification data. Public aggregator coverage notes indicate the Finicity
+    connection does not use OAuth (credential/screen-scraping style access),
+    which is typical of Canadian credit-union coverage today.
+
+    Canada has NO operational open-banking mandate. The federal Consumer-Driven
+    Banking framework (Budget 2024 / Fall Economic Statement 2024, overseen by
+    the Financial Consumer Agency of Canada) is legislated but not yet live, so
+    there is no first-party FDX/CDB data-access API to harvest. No FDX
+    participation and no US-1033-style posture are documented (1033 is a US rule
+    and not applicable to this Canadian entity). No first-party Interac e-Transfer
+    or Real-Time Rail (Payments Canada) API is exposed — Servus consumes those
+    shared rails as a member institution rather than documenting an API around them.
+  posture:
+    firstPartyDeveloperPortal: false
+    developerPortalURL: null
+    downloadableSpecs: false
+    specProvenance: none
+    authModel: none-documented
+    fdxParticipant: false
+    section1033Posture: not-applicable-canadian-entity
+    consumerDrivenBankingStatus: legislated-not-operational
+    aggregatorAccess:
+      - Finicity (Mastercard Open Banking)
+      - Plaid
+    charter: provincial-cooperative-credit-union
+    ownership: member-owned
+    coreBankingPartner: not-publicly-documented
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No documented public REST API surface for external developers.
+    - protocol: OpenAPI
+      documented: false
+      note: No downloadable OpenAPI or Swagger specification is published.
+  probes:
+    - url: https://developer.servus.ca
+      status: 000
+      note: Host does not resolve; no first-party developer portal.
+    - url: https://api.servus.ca
+      status: 000
+      note: Host does not resolve; no first-party API host.
+    - url: https://www.servus.ca/developer
+      status: 404
+      note: No developer path on the main site.
+    - url: https://www.servus.ca/
+      status: 200
+      note: Public marketing/banking site; no API documentation.
+    - url: https://ib.servus.ca/
+      status: 200
+      note: Member online-banking login (consumer web app), not a developer API.
+sources:
+  - url: https://www.servus.ca/
+    type: Website
+    note: Institution identity — Alberta's largest credit union, member-owned, Profit Share program; no developer/API content.
+  - url: https://en.wikipedia.org/wiki/Servus_Credit_Union
+    type: Reference
+    note: Founded 1938, Edmonton HQ, ~$30B assets, Canada's largest credit union by assets (2025), connectFirst merger (2023).
+  - url: https://fintable.io/coverage/banks/Canada/3385_servus-credit-union
+    type: Reference
+    note: Aggregator coverage via Finicity; connection noted as not supporting OAuth (credential-based access).
+  - url: https://fintable.io/coverage/banks/Canada/31130_servus-credit-union-mastercard
+    type: Reference
+    note: Mastercard Open Banking / Plaid coverage — balances, transactions, identity and income verification.
