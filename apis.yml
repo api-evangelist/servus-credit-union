@@ -60,10 +60,12 @@ tags_raw:
 - Open Banking
 - Financial-Services
 created: '2026-07-23'
-modified: '2026-07-23'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis: []
 common:
+- url: https://servus.ca/newsroom
+  type: Blog
 - type: DomainSecurity
   url: security/servus-credit-union-domain-security.yml
 - type: Website
