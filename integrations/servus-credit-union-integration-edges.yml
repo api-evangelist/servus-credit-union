@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/servus-credit-union/integrations
+- https://n8n.io/integrations/servus-credit-union/
+- https://composio.dev/toolkits/servus-credit-union
+- https://monid.ai/tools/servus-credit-union
+checked:
+- https://composio.dev/toolkits/servus-credit-union
+- https://monid.ai/tools/servus-credit-union
+- https://n8n.io/integrations/servus-credit-union/
+- https://zapier.com/apps/servus-credit-union/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
