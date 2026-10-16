@@ -1,0 +1,14 @@
+{
+  "repo": "servus-credit-union",
+  "feeds": [
+    {
+      "source": "https://servus.ca/newsroom",
+      "feed_url": "https://servus.ca/newsroom",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-10-10T13:15:00Z"
+}
